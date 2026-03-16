@@ -487,6 +487,8 @@ strong{font-weight:600;color:var(--ink)}
 }
 [data-theme="dark"] .cert-block{border-color:rgba(252,211,77,.14)}
 .cert-block:hover{transform:translateY(-2px)}
+a.cert-block{cursor:pointer;text-decoration:none;}
+a.cert-block:hover{box-shadow:var(--shadow);}
 .cert-icon{
   width:44px;height:44px;background:rgba(146,64,14,.07);
   border:1px solid rgba(146,64,14,.14);border-radius:var(--radius-sm);
