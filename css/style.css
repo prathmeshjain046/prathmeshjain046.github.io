@@ -169,6 +169,24 @@ strong{font-weight:600;color:var(--ink)}
   transition:gap .2s;
 }
 .btn-text:hover{gap:.7rem}
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: .88rem;
+  padding: .68rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  transition: border-color .2s, color .2s, transform .2s;
+}
+.btn-outline:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-2px);
+}
 
 /* ════ HEADER ════ */
 .header{
