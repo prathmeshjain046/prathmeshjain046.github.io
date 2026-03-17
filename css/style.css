@@ -395,6 +395,11 @@ strong{font-weight:600;color:var(--ink)}
 .num-card.accent-card .num-label{color:rgba(255,255,255,.6)}
 .num-big{font-family:var(--font-display);font-size:2.1rem;font-weight:900;color:var(--ink);letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
 .num-card.accent-card .num-big{color:#fff}
+.num-big + .num-big {
+  font-size: 1.1rem;
+  vertical-align: super;
+  letter-spacing: 0;
+}
 .pct{font-size:1.1rem}
 .num-label{font-size:.73rem;color:var(--muted);line-height:1.4;font-weight:500}
 
