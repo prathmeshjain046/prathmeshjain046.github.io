@@ -334,8 +334,330 @@
 
         <div class="proj-grid">
 
-          <article class="proj-card proj-featured reveal">
+          <article class="proj-card proj-featured proj-kg reveal" id="kg-card">
             <div class="proj-number">01</div>
+            <div class="proj-content">
+
+              <div class="proj-top">
+                <div>
+                  <h3 class="proj-title">KitabGhar</h3>
+                  <p class="proj-sub">Library Seat Management · PWA</p>
+                </div>
+                <div style="display:flex;align-items:center;gap:.55rem;flex-shrink:0;">
+                  <a href="https://kitabghar-app.vercel.app/" target="_blank" rel="noopener" class="kg-live-badge" title="Live app">
+                    <span class="status-dot small"></span> Live
+                  </a>
+                </div>
+              </div>
+
+              <p class="proj-desc">Full-stack multi-tenant SaaS library platform featuring a student reservation app, unified tenant admin panel, and super-admin command center. Handles offline/online payments gating, dynamic branding, and live Firestore seat maps.</p>
+
+              <!-- Interactive mini mockup — 3 switchable views -->
+              <div class="kg-demo-wrap" id="kgCard">
+                <div class="kg-demo-chrome">
+                  <div class="kg-chrome-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="kg-chrome-tabs" id="kgTabs">
+                    <button class="kg-chrome-tab active" data-view="home">📱 Student Home</button>
+                    <button class="kg-chrome-tab" data-view="book">📅 Book a Seat</button>
+                    <button class="kg-chrome-tab" data-view="admin">🖥 Admin</button>
+                  </div>
+                </div>
+
+                <div class="kg-demo-body">
+
+                  <!-- ─── View: Student Home ─── -->
+                  <div class="kg-view active" id="kgViewHome">
+                    <div class="kg-phone">
+                      <div class="kg-topbar">
+                        <span class="kg-brand-mark">Kitab<em>Ghar</em></span>
+                        <span class="kg-av-circle">PJ</span>
+                      </div>
+                      <div class="kg-hero-strip">
+                        <div class="kg-greeting">Namaste, Prathmesh! 👋</div>
+                        <div class="kg-hero-meta">6:00 AM – 11:00 PM · Mon–Sun</div>
+                        <div class="kg-tag-row">
+                          <span class="kg-tag">👑 Premium</span>
+                          <span class="kg-tag">Valid till Jul 2026</span>
+                        </div>
+                      </div>
+                      <div class="kg-stats-grid">
+                        <div class="kg-scard"><b>1</b><span>Active</span></div>
+                        <div class="kg-scard"><b>—</b><span>Hrs/mo</span></div>
+                        <div class="kg-scard"><b>1</b><span>Today</span></div>
+                        <div class="kg-scard"><b>0</b><span>Upcoming</span></div>
+                      </div>
+                      <div class="kg-sec-label">TODAY'S RESERVATIONS</div>
+                      <div class="kg-booking-row">
+                        <div class="kg-br-icon">🪑</div>
+                        <div class="kg-br-info">
+                          <div class="kg-br-seat">Seat A4 · Floor 1</div>
+                          <div class="kg-br-slot">6:00 AM – 11:00 PM · 1 Month</div>
+                        </div>
+                        <span class="kg-badge-active">Active</span>
+                      </div>
+                      <div class="kg-sec-label">BOOK A SEAT</div>
+                      <div class="kg-qb-row">
+                        <div class="kg-qb-btn primary">Hourly<span>Custom hrs</span></div>
+                        <div class="kg-qb-btn">Full Day<span>6AM–11PM</span></div>
+                        <div class="kg-qb-btn amber">Weekday<span>₹100/mo</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ─── View: Book a Seat ─── -->
+                  <div class="kg-view" id="kgViewBook">
+                    <div class="kg-phone">
+                      <div class="kg-book-title">Reserve a Seat</div>
+                      <div class="kg-step-row">
+                        <span class="kg-step active">① Plan</span>
+                        <span class="kg-step">② Seat</span>
+                        <span class="kg-step">③ Slots</span>
+                        <span class="kg-step">④ Duration</span>
+                      </div>
+                      <div class="kg-mode-selected">
+                        <div class="kg-ms-icon">⏱</div>
+                        <div>
+                          <div class="kg-ms-name">Hourly Slots</div>
+                          <div class="kg-ms-desc">Choose specific hours each day. Min 3 hrs/day.</div>
+                        </div>
+                      </div>
+                      <div class="kg-switch-label">Switch:</div>
+                      <div class="kg-switch-row">
+                        <span class="kg-sw-pill">☀️ Full Day</span>
+                        <span class="kg-sw-pill">📆 Weekday</span>
+                      </div>
+                      <div class="kg-sec-label" style="margin-top:.5rem">PICK SEAT · FLOOR 1</div>
+                      <div class="kg-seat-map">
+                        <div class="kg-sm-seat av">A1</div>
+                        <div class="kg-sm-seat av">A2</div>
+                        <div class="kg-sm-seat sel">A3</div>
+                        <div class="kg-sm-seat tk">A4</div>
+                        <div class="kg-sm-seat win">A5</div>
+                        <div class="kg-sm-seat av">B1</div>
+                        <div class="kg-sm-seat tk">B2</div>
+                        <div class="kg-sm-seat av">B3</div>
+                        <div class="kg-sm-seat win">B4</div>
+                        <div class="kg-sm-seat av">B5</div>
+                      </div>
+                      <div class="kg-cta-bar">
+                        <span>Seat A3 · Floor 1</span>
+                        <button class="kg-cta-btn">Review & Confirm →</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ─── View: Admin ─── -->
+                  <div class="kg-view" id="kgViewAdmin">
+                    <div class="kg-desktop">
+                      <div class="kg-sidebar">
+                        <div class="kg-sb-brand">Kitab<em>Ghar</em><span>Admin</span></div>
+                        <nav class="kg-sb-nav">
+                          <div class="kg-sb-item active">📊 Dashboard</div>
+                          <div class="kg-sb-item" id="kgLiveNav">🗺 Live Map</div>
+                          <div class="kg-sb-item">👥 Members</div>
+                          <div class="kg-sb-item">📅 Bookings</div>
+                          <div class="kg-sb-item">📱 QR Check-in</div>
+                        </nav>
+                      </div>
+                      <div class="kg-main">
+                        <div class="kg-main-header">
+                          <div>
+                            <div class="kg-page-title">Dashboard</div>
+                            <div class="kg-page-sub">KitabGhar · Admin Panel</div>
+                          </div>
+                          <div class="kg-admin-av">AD</div>
+                        </div>
+                        <div class="kg-admin-stats">
+                          <div class="kg-as-card"><b>24</b><span>Members</span></div>
+                          <div class="kg-as-card warn"><b>3</b><span>Pending</span></div>
+                          <div class="kg-as-card"><b>12</b><span>Bookings</span></div>
+                          <div class="kg-as-card rev"><b>₹18k</b><span>Revenue</span></div>
+                        </div>
+                        <div class="kg-sec-label">LIVE SEAT MAP · FLOOR 1</div>
+                        <div class="kg-live-grid" id="kgLiveGrid">
+                          <div class="kg-lg-seat occ" title="A1 Occupied"></div>
+                          <div class="kg-lg-seat occ" title="A2 Occupied"></div>
+                          <div class="kg-lg-seat free" title="A3 Free"></div>
+                          <div class="kg-lg-seat occ" title="A4 Occupied"></div>
+                          <div class="kg-lg-seat win" title="A5 Window"></div>
+                          <div class="kg-lg-seat free" title="B1 Free"></div>
+                          <div class="kg-lg-seat occ" title="B2 Occupied"></div>
+                          <div class="kg-lg-seat win" title="B3 Window"></div>
+                          <div class="kg-lg-seat free" title="B4 Free"></div>
+                          <div class="kg-lg-seat occ" title="B5 Occupied"></div>
+                          <div class="kg-lg-seat free" title="C1 Free"></div>
+                          <div class="kg-lg-seat win" title="C2 Window"></div>
+                          <div class="kg-lg-seat occ" title="C3 Occupied"></div>
+                          <div class="kg-lg-seat free" title="C4 Free"></div>
+                          <div class="kg-lg-seat free" title="C5 Free"></div>
+                          <div class="kg-lg-seat occ" title="D1 Occupied"></div>
+                          <div class="kg-lg-seat free" title="D2 Free"></div>
+                          <div class="kg-lg-seat free" title="D3 Free"></div>
+                          <div class="kg-lg-seat occ" title="D4 Occupied"></div>
+                          <div class="kg-lg-seat win" title="D5 Window"></div>
+                        </div>
+                        <div class="kg-map-legend">
+                          <span class="kg-ml-dot occ"></span>Occupied
+                          <span class="kg-ml-dot free"></span>Free
+                          <span class="kg-ml-dot win"></span>Window
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div><!-- /kg-demo-wrap -->
+
+              <div class="proj-highlights">
+                <div class="ph-item">
+                  <span class="ph-val">SaaS</span>
+                  <span class="ph-label">Multi-tenant workspaces & branding</span>
+                </div>
+                <div class="ph-item">
+                  <span class="ph-val">Admin</span>
+                  <span class="ph-label">Super-admin panel & payment gating</span>
+                </div>
+              </div>
+
+              <div class="proj-stack">
+                <span>React</span><span>Vite</span><span>Firebase</span>
+                <span>Firestore</span><span>Zustand</span><span>PWA</span>
+                <span class="kg-rm-chip">Multi-Tenant</span>
+                <span class="kg-rm-chip">Super Admin</span>
+                <span class="kg-rm-chip">Razorpay</span>
+                <span class="kg-rm-chip">FCM Notifications</span>
+              </div>
+
+            </div>
+          </article>
+
+          <article class="proj-card proj-featured proj-zuuby reveal" style="--d:1" id="zuuby-card">
+            <div class="proj-number">02</div>
+            <div class="proj-content">
+              <div class="proj-top">
+                <div>
+                  <h3 class="proj-title">Zuuby</h3>
+                  <p class="proj-sub">Multi-AI Chrome Extension</p>
+                </div>
+                <div style="display:flex;align-items:center;gap:.55rem;flex-shrink:0;">
+                  <a href="https://chromewebstore.google.com/detail/foabocoleekhnkcjbdlidbmiamcekmjl?utm_source=item-share-cb" target="_blank" rel="noopener" class="live-badge" title="Chrome Web Store">
+                    <span class="status-dot small"></span> Live
+                  </a>
+                </div>
+              </div>
+
+              <p class="proj-desc">Floating context-aware AI chatbot that operates on any webpage. Highlight text, right-click, or launch the floating panel to summarize, explain, or translate. Features secure Google account synchronization and a client-side quota auto-fallback.</p>
+
+              <!-- Interactive mini demo -->
+              <div class="zuuby-demo" id="zuubyDemo">
+                <div class="zuuby-ext-panel">
+                  <!-- Header -->
+                  <div class="zuuby-ext-header">
+                    <div class="zeh-left">
+                      <div class="zeh-avatar">z</div>
+                      <div class="zeh-info">
+                        <div class="zeh-title">Zuuby</div>
+                        <div class="zeh-status">
+                          <span class="zeh-status-dot gemini"></span>
+                          <span class="zeh-status-provider">Gemini</span> • <span class="zeh-status-free">Free</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="zeh-actions">
+                      <button class="zeh-btn" title="History">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                      </button>
+                      <button class="zeh-btn zuuby-clear-btn" title="Clear Chat">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Provider Bar -->
+                  <div class="zuuby-ext-providers-bar">
+                    <span class="zep-label">AI PROVIDER:</span>
+                    <div class="zep-pills">
+                      <button class="zp-pill active" data-id="gemini"><span class="zp-dot gemini"></span>Gemini</button>
+                      <button class="zp-pill" data-id="groq"><span class="zp-dot groq"></span>Groq</button>
+                      <button class="zp-pill" data-id="mistral"><span class="zp-dot mistral"></span>Mistral</button>
+                      <button class="zp-pill" data-id="cohere"><span class="zp-dot cohere"></span>Cohere</button>
+                    </div>
+                    <button class="zep-auto-btn" title="Auto Fallback active">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2v9h9L11 22v-9H2L13 2z"/></svg>
+                      Auto
+                    </button>
+                  </div>
+
+                  <!-- Body -->
+                  <div class="zuuby-ext-body">
+                    <!-- Welcome view -->
+                    <div class="zuuby-ext-welcome" id="zuubyWelcomeCard">
+                      <div class="zew-sparkle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+                      </div>
+                      <p class="zew-text">Zuuby is ready! I'll automatically switch AI providers if one runs out of quota.</p>
+                    </div>
+
+                    <!-- Chat view (initially hidden) -->
+                    <div class="zuuby-ext-chat" id="zuubyChatCard" style="display: none;"></div>
+
+                    <!-- Suggestion Chips -->
+                    <div class="zuuby-ext-chips">
+                      <button class="zec-chip" data-text="Summarise this page for me">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        Summarize
+                      </button>
+                      <button class="zec-chip" data-text="List key takeaways from this page">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        Key Points
+                      </button>
+                      <button class="zec-chip" data-text="Give me a quick TL;DR">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2v9h9L11 22v-9H2L13 2z"/></svg>
+                        TL;DR
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Footer Input -->
+                  <div class="zuuby-ext-footer">
+                    <div class="zef-input-container">
+                      <input type="text" class="zef-input" placeholder="Ask anything..." />
+                    </div>
+                    <button class="zef-send-btn" disabled>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polyline points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                  </div>
+
+                  <!-- Toast inside card -->
+                  <div class="zuuby-ext-toast"></div>
+                </div>
+              </div>
+
+              <div class="proj-highlights">
+                <div class="ph-item">
+                  <span class="ph-val">Fallback</span>
+                  <span class="ph-label">Client-side auto-switching across 5 providers</span>
+                </div>
+                <div class="ph-item">
+                  <span class="ph-val">Sync</span>
+                  <span class="ph-label">Secure Google OAuth 2.0 & settings sync</span>
+                </div>
+              </div>
+
+              <div class="proj-stack">
+                <span>Vanilla JS</span><span>Chrome Extension API</span><span>Firebase</span>
+                <span>Chrome MV3</span><span>CSS3</span>
+                <span class="kg-rm-chip">OAuth 2.0</span>
+                <span class="kg-rm-chip">Auto-Fallback</span>
+                <span class="kg-rm-chip">Context Menu</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj-card proj-featured reveal" style="--d:2">
+            <div class="proj-number">03</div>
             <div class="proj-content">
               <div class="proj-top">
                 <div>
@@ -369,8 +691,8 @@
             </div>
           </article>
 
-          <article class="proj-card reveal" style="--d:1">
-            <div class="proj-number">02</div>
+          <article class="proj-card reveal" style="--d:3">
+            <div class="proj-number">04</div>
             <div class="proj-content">
               <div class="proj-top">
                 <div>
@@ -404,62 +726,6 @@
             </div>
           </article>
 
-          <article class="proj-card proj-featured proj-zuuby reveal" style="--d:2" id="zuuby-card">
-  <div class="proj-number">03</div>
-  <div class="proj-content">
-    <div class="proj-top">
-      <div>
-        <h3 class="proj-title">Zuuby</h3>
-        <p class="proj-sub">Multi-AI Chrome Extension</p>
-      </div>
-      <a href="https://chromewebstore.google.com/detail/foabocoleekhnkcjbdlidbmiamcekmjl?utm_source=item-share-cb" target="_blank" rel="noopener" class="proj-gh" title="Chrome Web Store">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.68.72 5.01 1.9L12 12V6zm-1 6.73L5.99 7.9A7.94 7.94 0 0 0 4 12c0 3.73 2.56 6.86 6 7.75V13l1-4.27zM12 20c-1.93 0-3.68-.72-5.01-1.9l5.01-4.1 5.01 4.1C15.68 19.28 13.93 20 12 20zm1-7.27V19.75c3.44-.89 6-4.02 6-7.75 0-1.58-.46-3.05-1.25-4.29L13 12.73z"/>
-        </svg>
-      </a>
-    </div>
-
-    <p class="proj-desc">Floating AI chatbot that works on every webpage. Supports 5 providers — Gemini, Groq, Mistral, Cohere & OpenAI — with automatic fallback when quota runs out. Built with Chrome MV3, OAuth 2.0 Google Sign-In, and a draggable UI.</p>
-
-    <!-- Interactive mini demo -->
-    <div class="zuuby-demo" id="zuubyDemo">
-      <div class="zuuby-demo-bar">
-        <div class="zuuby-demo-dot"></div>
-        <div class="zuuby-demo-dot"></div>
-        <div class="zuuby-demo-dot"></div>
-        <span class="zuuby-demo-label">Live preview · click a provider</span>
-      </div>
-      <div class="zuuby-providers">
-        <button class="zp-pill active" data-id="gemini">🔵 Gemini</button>
-        <button class="zp-pill" data-id="groq">🟠 Groq</button>
-        <button class="zp-pill" data-id="mistral">🔴 Mistral</button>
-        <button class="zp-pill" data-id="cohere">🟣 Cohere</button>
-      </div>
-      <div class="zuuby-chat-line" id="zuubyChatLine">
-        <span class="zcl-tag user">You</span>
-        <span id="zuubyText">Click a provider to see auto-fallback in action</span>
-      </div>
-      <div class="zuuby-fallback-toast" id="zuubyToast"></div>
-    </div>
-
-    <div class="proj-highlights">
-      <div class="ph-item">
-        <span class="ph-val">5</span>
-        <span class="ph-label">AI providers with auto-fallback</span>
-      </div>
-      <div class="ph-item">
-        <span class="ph-val">MV3</span>
-        <span class="ph-label">Chrome Manifest v3 architecture</span>
-      </div>
-    </div>
-
-    <div class="proj-stack">
-      <span>Vanilla JS</span><span>Chrome Extension API</span><span>Gemini</span>
-      <span>Groq</span><span>OpenAI API</span><span>OAuth 2.0</span><span>CSS3</span>
-    </div>
-  </div>
-</article>
-          
         </div>
       </div>
     </section>
@@ -629,17 +895,102 @@
     </section>
   </main>
 
-  <!-- ── Footer ── -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span class="footer-brand">Prathmesh Jain</span>
-      <span class="footer-copy">Designed & Developed with care · 2025</span>
-      <div class="footer-links">
-        <a href="https://linkedin.com/in/prathmeshjain46" target="_blank">LinkedIn</a>
-        <a href="mailto:prathmeshjain046@gmail.com">Email</a>
+  <!-- ── Zuuby Floating Extension Widget (Global) ── -->
+  <div class="zuuby-global-wrapper">
+    <div class="zuuby-global-tooltip">Open Zuuby</div>
+    <button class="zuuby-global-trigger" id="zuubyGlobalTrigger" aria-label="Open Zuuby Assistant">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </button>
+    
+    <div class="zuuby-global-popup" id="zuubyGlobalPopup">
+      <div class="zuuby-ext-panel">
+        <!-- Header -->
+        <div class="zuuby-ext-header">
+          <div class="zeh-left">
+            <div class="zeh-avatar">z</div>
+            <div class="zeh-info">
+              <div class="zeh-title">Zuuby</div>
+              <div class="zeh-status">
+                <span class="zeh-status-dot gemini"></span>
+                <span class="zeh-status-provider">Gemini</span> • <span class="zeh-status-free">Free</span>
+              </div>
+            </div>
+          </div>
+          <div class="zeh-actions">
+            <button class="zeh-btn" title="History">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            </button>
+            <button class="zeh-btn zuuby-clear-btn" title="Clear Chat">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+            </button>
+            <button class="zeh-btn close-only" id="zuubyCloseBtn" title="Close Panel">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Provider Bar -->
+        <div class="zuuby-ext-providers-bar">
+          <span class="zep-label">AI PROVIDER:</span>
+          <div class="zep-pills">
+            <button class="zp-pill active" data-id="gemini"><span class="zp-dot gemini"></span>Gemini</button>
+            <button class="zp-pill" data-id="groq"><span class="zp-dot groq"></span>Groq</button>
+            <button class="zp-pill" data-id="mistral"><span class="zp-dot mistral"></span>Mistral</button>
+            <button class="zp-pill" data-id="cohere"><span class="zp-dot cohere"></span>Cohere</button>
+          </div>
+          <button class="zep-auto-btn" title="Auto Fallback active">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2v9h9L11 22v-9H2L13 2z"/></svg>
+            Auto
+          </button>
+        </div>
+
+        <!-- Body -->
+        <div class="zuuby-ext-body">
+          <!-- Welcome view -->
+          <div class="zuuby-ext-welcome" id="zuubyWelcomeGlobal">
+            <div class="zew-sparkle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+            </div>
+            <p class="zew-text">Zuuby is ready! I'll automatically switch AI providers if one runs out of quota.</p>
+          </div>
+
+          <!-- Chat view (initially hidden) -->
+          <div class="zuuby-ext-chat" id="zuubyChatGlobal" style="display: none;"></div>
+
+          <!-- Suggestion Chips -->
+          <div class="zuuby-ext-chips">
+            <button class="zec-chip" data-text="Summarise this page for me">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Summarize
+            </button>
+            <button class="zec-chip" data-text="List key takeaways from this page">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              Key Points
+            </button>
+            <button class="zec-chip" data-text="Give me a quick TL;DR">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2v9h9L11 22v-9H2L13 2z"/></svg>
+              TL;DR
+            </button>
+          </div>
+        </div>
+
+        <!-- Footer Input -->
+        <div class="zuuby-ext-footer">
+          <div class="zef-input-container">
+            <input type="text" class="zef-input" placeholder="Ask anything..." />
+          </div>
+          <button class="zef-send-btn" disabled>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polyline points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+
+        <!-- Toast inside global -->
+        <div class="zuuby-ext-toast"></div>
       </div>
     </div>
-  </footer>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
