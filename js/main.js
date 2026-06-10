@@ -113,12 +113,17 @@ document.querySelectorAll('.about-numbers').forEach(el => counterObserver.observ
 // ── Active nav link on scroll ──
 const sections = document.querySelectorAll('section[id]');
 const navAs    = document.querySelectorAll('.nav-links a');
+const drawerAs = document.querySelectorAll('.drawer-link');
 
 const navObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      const targetId = '#' + entry.target.id;
       navAs.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+        a.classList.toggle('active', a.getAttribute('href') === targetId);
+      });
+      drawerAs.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === targetId);
       });
     }
   });

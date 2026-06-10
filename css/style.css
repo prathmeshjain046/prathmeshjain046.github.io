@@ -305,10 +305,39 @@ strong{font-weight:600;color:var(--ink)}
 }
 .header-cta:hover{background:var(--blue);color:#fff}
 
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
-.burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.burger.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger {
+  display: none;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.burger span {
+  position: absolute;
+  left: 1px;
+  top: 11px;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+.burger span:nth-child(1) {
+  transform: translateY(-4px);
+}
+.burger span:nth-child(2) {
+  transform: translateY(4px);
+}
+.burger.active span:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+}
+.burger.active span:nth-child(2) {
+  transform: translateY(0) rotate(-45deg);
+}
 
 /* Drawer */
 .drawer{
@@ -320,7 +349,7 @@ strong{font-weight:600;color:var(--ink)}
 .drawer.open{transform:translateX(0)}
 .drawer-nav{display:flex;flex-direction:column;gap:1.75rem;text-align:center}
 .drawer-link{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--muted);transition:color .2s}
-.drawer-link:hover{color:var(--ink)}
+.drawer-link:hover, .drawer-link.active{color:var(--blue)}
 .drawer-overlay{
   position:fixed;inset:62px 0 0 0;z-index:98;
   background:rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .3s;
@@ -740,6 +769,9 @@ a.cert-block:hover{box-shadow:var(--shadow);}
   gap: 0.3rem;
   flex-wrap: nowrap;
   overflow-x: auto;
+  flex: 1;
+  min-width: 0;
+  margin: 0 0.4rem;
 }
 .zep-pills::-webkit-scrollbar { display: none; }
 .zp-pill {
@@ -1481,6 +1513,7 @@ a.cert-block:hover{box-shadow:var(--shadow);}
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr;padding-top:8rem;gap:3rem;text-align:center}
   .hero-eyebrow,.hero-actions{margin:0 auto}
+  .hero-actions{justify-content:center}
   .hero-sub{margin:0 auto 2.5rem}
   .hero-right{justify-content:center}
   .about-grid{grid-template-columns:1fr;gap:3rem}
@@ -1495,8 +1528,11 @@ a.cert-block:hover{box-shadow:var(--shadow);}
 }
 @media(max-width:768px){
   .nav-links,.header-cta{display:none}
+  .header-right{margin-left:auto}
   .burger{display:flex}
-  .exp-item{grid-template-columns:1fr;gap:.5rem}
+  .drawer{align-items:flex-start;overflow-y:auto;padding:3rem 0}
+  .section-heading{margin-bottom:1.75rem}
+  .exp-item{grid-template-columns:1fr;gap:.5rem;padding:1.5rem 0}
   .exp-period{display:flex;align-items:center;gap:.75rem}
   .exp-dates{margin-bottom:0}
   .edu-row{grid-template-columns:1fr;gap:.75rem;padding:1.2rem 1.4rem}
@@ -1510,7 +1546,67 @@ a.cert-block:hover{box-shadow:var(--shadow);}
   .about-numbers{grid-template-columns:1fr 1fr}
 }
 @media(max-width:480px){
-  .hero-heading{font-size:2.5rem}
+  .section{padding:3.5rem 0}
+  .hero-heading{font-size:2.3rem}
   .hero-card{width:100%}
+  .about-numbers{grid-template-columns:1fr;gap:0.75rem}
   .exp-header{flex-direction:column;gap:.75rem}
+  .cert-block{padding:1rem;gap:0.75rem}
+  .cp-platform{min-width:90px}
+  .availability-card{padding:1.25rem}
+  
+  /* Project Card Optimizations */
+  .proj-card{padding:1.25rem}
+  .proj-top{flex-wrap:wrap;gap:0.5rem}
+  .proj-title{font-size:1.25rem}
+  .proj-sub{font-size:0.7rem}
+  .proj-desc{font-size:0.82rem;line-height:1.6;margin-bottom:1rem}
+  .proj-highlights{grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:1rem}
+  .ph-item{padding:0.5rem 0.6rem}
+  .ph-val{font-size:1.15rem;margin-bottom:0.15rem}
+  .ph-label{font-size:0.62rem}
+  .proj-stack span{font-size:0.65rem;padding:0.18rem 0.5rem}
+  
+  .footer-inner{flex-direction:column;text-align:center;gap:1.25rem}
+  .footer-links{justify-content:center}
+  
+  /* KitabGhar Micro Mobile Optimizations */
+  .kg-chrome-tabs{gap:0.2rem}
+  .kg-chrome-tab{font-size:0.58rem;padding:0.18rem 0.48rem}
+  .kg-phone{padding:0.6rem}
+  .kg-hero-strip{padding:0.5rem 0.6rem}
+  .kg-greeting{font-size:0.8rem}
+  .kg-booking-row{padding:0.3rem 0.4rem}
+  .kg-cta-bar{padding:0.35rem 0.45rem;font-size:0.6rem}
+  .kg-cta-btn{font-size:0.55rem;padding:0.18rem 0.5rem}
+  .kg-desktop{font-size:0.65rem}
+  .kg-sidebar{width:70px;padding:0.5rem 0.3rem}
+  .kg-sb-brand{font-size:0.7rem;margin-bottom:0.4rem}
+  .kg-sb-brand span{font-size:0.4rem}
+  .kg-sb-item{font-size:0.5rem;padding:0.2rem 0.25rem}
+  .kg-main{padding:0.5rem}
+  .kg-admin-stats{gap:0.2rem}
+  .kg-as-card{padding:0.2rem 0.15rem}
+  .kg-as-card b{font-size:0.72rem}
+  .kg-qb-row{font-size:0.6rem}
+  .kg-qb-btn span{font-size:0.48rem}
+  
+  /* Zuuby Widget Mobile Optimizations */
+  .zuuby-demo{height:330px}
+  .zep-label{font-size:0.5rem}
+  .zep-auto-btn{font-size:0.55rem;padding:0.15rem 0.35rem}
+  .zp-pill{font-size:0.55rem;padding:0.15rem 0.35rem}
+  .zuuby-ext-header{padding:0.5rem 0.65rem}
+  .zeh-title{font-size:0.72rem}
+  .zeh-status{font-size:0.58rem}
+  .zuuby-ext-welcome{padding:0.5rem}
+  .zew-text{font-size:0.65rem}
+  .zuuby-ext-footer{padding:0.5rem 0.65rem}
+  .zef-input-container{padding:0.25rem 0.45rem}
+  .zef-input{font-size:0.68rem}
+  
+  .zuuby-ext-chips{flex-wrap:wrap;justify-content:center;gap:0.25rem}
+  .zuuby-global-popup{right:1rem;bottom:5rem;width:calc(100vw - 2rem);height:380px}
+  .zuuby-global-trigger{right:1rem;bottom:1rem;width:46px;height:46px}
+  .zuuby-global-tooltip{right:1rem;bottom:4.5rem}
 }
